@@ -7,14 +7,14 @@
 <mapper namespace="ProductMapper">
  	
  	
-	<resultMap id="productSelectMap" type="product">
-		<result property="prodNo" 			column="prod_no" 			jdbcType="NUMERIC"/>
-		<result property="prodName"	column="prod_name" 		jdbcType="VARCHAR" />
-		<result property="prodDetail" 	column="PROD_DETAIL" 		jdbcType="VARCHAR" />
-		<result property="manuDate" 				column="MANUFACTURE_DAY" 					jdbcType="VARCHAR" />
-		<result property="price" 				column="PRICE" 					jdbcType="NUMERIC" />
-		<result property="fileName" 			column="IMAGE_FILE" 		jdbcType="VARCHAR" />
-		<result property="regDate" 				column="REG_DATE" 					jdbcType="DATE" />
+		<resultMap id="productSelectMap" type="product">
+		<result property="prodNo" 			column="prod_no" 						jdbcType="NUMERIC"/>
+		<result property="prodName"			column="prod_name" 					jdbcType="VARCHAR" />
+		<result property="prodDetail" 		column="PROD_DETAIL" 				jdbcType="VARCHAR" />
+		<result property="manuDate" 		column="MANUFACTURE_DAY" 		jdbcType="VARCHAR" />
+		<result property="price" 				column="PRICE" 							jdbcType="NUMERIC" />
+		<result property="fileName" 			column="IMAGE_FILE" 					jdbcType="VARCHAR" />
+		<result property="regDate" 			column="REG_DATE" 					jdbcType="DATE" />
 	</resultMap>
 	
 	<!-- SQL : INSERT -->

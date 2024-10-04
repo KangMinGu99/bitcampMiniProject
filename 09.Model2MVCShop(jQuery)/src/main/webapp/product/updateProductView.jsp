@@ -1,28 +1,30 @@
 <%@ page contentType="text/html; charset=euc-kr" %>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%-- 
 // 	Product prod = (Product)request.getAttribute("product");
 --%>
 
 <html>
 <head>
+	<meta charset="EUC-KR">
 <title>상품정보수정</title>
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
-
-<script type="text/javascript" src="../javascript/calendar.js">
-</script>
-
-<script type="text/javascript">
+	<script src="/javascript/calendar.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript">
 
 function fncUpdateProduct() {
     // Form 유효성 검증
-    var name = document.detailForm.prodName.value;
-    var detail = document.detailForm.prodDetail.value;
-    var manuDate = document.detailForm.manuDate.value;
-    var price = document.detailForm.price.value;
+//     var name = document.detailForm.prodName.value;
+//     var detail = document.detailForm.prodDetail.value;
+//     var manuDate = document.detailForm.manuDate.value;
+//     var price = document.detailForm.price.value;
+
+var name=$("input[name='prodName']").val();
+		var detail=$("input[name='prodDetail']").val();
+		var manuDate=$("input[name='manuDate']").val();
+		var price=$("input[name='price']").val();
 
     // 유효성 검증
     if (name == null || name.length < 1) {
@@ -47,17 +49,18 @@ function fncUpdateProduct() {
     // 폼 전송
     //document.detailForm.action = '/product/updateProduct'; 
     //document.detailForm.submit();
-    $('form').attr("method" , "POST").attr("action", "/product/updateProduct" ).submit();
-    
+    $("form").attr("method" , "POST").attr("action", "/product/updateProduct" ).submit();
+}
     $(function(){
-    	$("td.ct_btn01:contains('수정')").on("click" , function(){ 
+    	$("td.ct_btn01:contains('수정')").on("click" , function(){
+			
     		fncUpdateProduct();
     	});
     })
     
     $(function(){
-    	$("td.ct_btn01:contains('취소')").on("click" , function(){
-    		history.go(-1)
+		$("td.ct_btn01:contains('취소')").on("click" , function(){
+			history.go(-1)
     	});
     })
     

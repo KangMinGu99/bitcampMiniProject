@@ -1,7 +1,5 @@
 <%@ page contentType="text/html; charset=EUC-KR"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%--
 // 	Product prod = (Product)request.getAttribute("prod");
 // 	User user = (User) request.getSession().getAttribute("user");
@@ -10,19 +8,32 @@
 
 <html>
 <head>
+<meta charset="EUC-KR">
+
 <title>상품정보 조회</title>
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
-
+	<script src="/javascript/calendar.js"></script>
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript">
 	
-	$(function(){
-		$("ct_btnbg02:contains('확인')").on("click", function(){
-			history.go(-1);
+	
+	
+		$(function(){
+			$("td.ct_btn01:contains('이전')").on("click" , function(){
+				history.go(-1)
+			
+		});
+			
+	});
+		$(function(){
+			$("td.ct_btn01:contains('확인')").on("click" , function(){
+				self.location ="/product/listProduct?menu=manage"
+				
+			});
 		});
 		
-	});
+		
 	</script>
 	
 </head>

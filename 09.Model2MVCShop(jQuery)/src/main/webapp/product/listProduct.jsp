@@ -34,7 +34,7 @@
 		//$("currentPage").val(currentPage) => 내가 틀린거 -> id 받아와야함
 		$("#currentPage").val(currentPage)
 		//document.detailForm.submit();   
-		$("form").attr("method", "POST").attr("action", "/product/listProduct")
+		$("form").attr("method", "POST").attr("action", "/product/listProduct?menu=${menu}")
 				.submit();
 	}
 
@@ -47,11 +47,12 @@
 			$(".ct_list_pop td:nth-child(3) ").on(
 					"click",
 					function() {
-						self.location = "/product/updateProductView?prodNo="
-								+ $(this).text().trim();
+						self.location ="/product/${menu eq 'manage' ? 'updateProductView' : 'getProduct'}?prodNo="+$(this).text().trim();
 					});
 		})
 	
+		
+		
 	});
 </script>
 </head>
@@ -108,8 +109,7 @@
 							<option value="2"
 								${ ! empty search.searchCondition && search.searchCondition == 2 ? "selected" : ""}>상품가격</option>
 					</select> <input type="text" name="searchKeyword"
-						value="${! empty search.searchKeyword ? search.searchKeyword : "
-						" }"
+						value="${! empty search.searchKeyword ? search.searchKeyword : '' }"
 						class="ct_input_g" style="width: 200px; height: 19px" />
 					</td>
 					<td align="right" width="70">
@@ -196,7 +196,7 @@
 
 			<!-- PageNavigation Start... -->
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"
-				style="margin-top: 10px;">
+			style="margin-top: 10px;">
 				<tr>
 					<td align="center"><input type="hidden" id="currentPage"
 						name="currentPage" value="" /> <c:if
